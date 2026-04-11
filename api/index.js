@@ -1,11 +1,18 @@
-import dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
+import authRoutes from './routes/auth.route.js'
+import userRoutes from './routes/user.route.js'
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
+
+// -- Middleware --
+app.use(express.json());
+
+// -- Routes --
+app.use('/api/user', userRoutes)
+app.use('/api/auth', authRoutes)
 
 const startServer = async () => {
   try {
