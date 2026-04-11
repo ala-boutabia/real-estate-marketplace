@@ -7,9 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
+build
+
+# Environment variables — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# Local env overrides (already covered by *.local, kept for clarity)
 *.local
 
 # Editor directories and files
