@@ -3,12 +3,15 @@ import express from "express";
 import mongoose from "mongoose";
 import authRoutes from './routes/auth.route.js'
 import userRoutes from './routes/user.route.js'
+import errorHandler from "./middleware/errorHandler.js";
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // -- Middleware --
 app.use(express.json());
+app.use(errorHandler)
 
 // -- Routes --
 app.use('/api/user', userRoutes)
