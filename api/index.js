@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors"
 import authRoutes from './routes/auth.route.js'
 import userRoutes from './routes/user.route.js'
 import errorHandler from "./middleware/errorHandler.js";
@@ -11,11 +12,14 @@ const PORT = process.env.PORT || 3000;
 
 // -- Middleware --
 app.use(express.json());
-app.use(errorHandler)
+app.use(cors())
+
 
 // -- Routes --
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
+
+app.use(errorHandler)
 
 const startServer = async () => {
   try {
