@@ -8,6 +8,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout"
+import UsersPage from "./pages/UsersPage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Route>
+        <Route path="users" element={<UsersPage />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>
